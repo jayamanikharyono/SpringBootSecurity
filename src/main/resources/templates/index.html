@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Home</title>
+	<link rel="stylesheet" type="text/css" th:href="@{/css/login.css}" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+	<div class="container">
+	<div class="panel panel-default">
+  	<!-- Default panel contents -->
+  	<div class="panel-heading">Panel heading</div>
+		<table class="table">
+			<tr>
+				<th>Id Laporan</th>
+				<th>Nama Laporan</th>
+				<th>Laporan</th>
+				<th>Tanggal Laporan</th>
+				<th>Aksi</th>
+			</tr>
+			<tr th:each="laporan  : ${listLaporan}">
+				<td th:text="${laporan.id}">ID Laporan</td>
+				<td th:text="${laporan.nama}">Nama Laporan</td>
+				<td th:text="${laporan.fileLaporan}">LinkToFileLaporan</td>
+				<td th:text="${{laporan.tanggalLaporan}}">Tanggal Laporan</td>
+				<td>
+			    	<a th:href="@{'/laporan/' + ${laporan.id}}"><span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span></a>
+			    	<a th:href="@{'/laporan/edit/' + ${laporan.id}}"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
+			    	<a th:href="@{'/laporan/delete/'+ ${laporan.id}}"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+			    </td>
+			</tr>
+		</table>
+	</div>
+	</div>
+</body>
+</html>
