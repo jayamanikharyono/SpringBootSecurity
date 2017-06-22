@@ -100,4 +100,9 @@ public class Laporan implements Serializable{
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
+	@Override
+	public String toString()
+	{
+		return "-----------------------" + id + nama + fileLaporan +tanggalLaporan+imageList+user.getName()+roles;
+	}
 }
